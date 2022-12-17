@@ -12,3 +12,4 @@ for i = 1:24
     dmp(:) = v10(1,i,:);
     plot(t(:),dmp-v0(i,:)+2*i)
 end
+%test

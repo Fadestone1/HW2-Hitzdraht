@@ -1,4 +1,5 @@
 addpath("util")
+addpath("plot")
 
 alfas = 0:2:8;
 
@@ -49,4 +50,5 @@ cords = cords(:,2);
 
 clear folder_path i name
 
+run("normalize.m");
 run("stats.m");

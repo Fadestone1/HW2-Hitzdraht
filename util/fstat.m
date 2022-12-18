@@ -1,4 +1,5 @@
 function [sm1, sm2, sm3, sm4] = fstat(m, dim)
+% FSTAT return first 4 standard moments along last dimension
 if ~exist("dim")
     dim = length(size(m));
 end

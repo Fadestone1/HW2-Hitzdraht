@@ -48,3 +48,5 @@ cords = readmatrix(folder_path+'coords.dat');
 cords = cords(:,2);
 
 clear folder_path i name
+
+run("stats.m");

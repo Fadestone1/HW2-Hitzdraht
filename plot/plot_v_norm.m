@@ -7,6 +7,7 @@ for i=1:24
     histogram(v0(i,:), 20,'BinWidth',.005)
     xlim([-.1, .1])
     yticks([1000]);
+    ylim([0,1500]);
     title("Sensor "+i)
 end
 exportgraphics(gcf,'figures/norm_hists_before.pdf','ContentType','vector')
@@ -21,18 +22,8 @@ for i=1:24
     histogram(v0_normed(i,:), 20,'BinWidth',.2)
     yticks([1000]);
     xlim([-2, 2])
+    ylim([0,1500]);
     title("Sensor "+i)
 end
 exportgraphics(gcf,'figures/norm_hists_after_minmax.pdf','ContentType','vector')
-title(t2, "Before normalization")
-
-figure()
-title("v10 alfa 2")
-t=tiledlayout(6,4);
-for i=1:24
-    nexttile
-    histogram(v10(2,i,:), 20,'BinWidth',.2)
-    yticks([1000]);
-    xlim([-2, 2])
-    title("Sensor "+i)
-end
+title(t2, "After normalization")

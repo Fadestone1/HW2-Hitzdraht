@@ -52,3 +52,4 @@ clear folder_path i name
 
 run("normalize.m");
 run("stats.m");
+excluded_sensors = [6, 10, 12, 13, 17,18,19,21];

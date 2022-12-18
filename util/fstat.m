@@ -9,6 +9,6 @@ ms = m - mean(m, dim);
 sm1 = mean(m, dim);
 sm2 = rms(ms, dim);
 sm3 = skewness(ms, 1, dim);
-sm4 = kurtosis(ms, 1, dim);
+sm4 = kurtosis(ms, 1, dim)-3;
 end
 

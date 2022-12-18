@@ -7,6 +7,8 @@ v10 = zeros(5, 24, 10000);
 v15 = zeros(5, 24, 10000);
 v20 = zeros(5, 24, 10000);
 
+cords = zeros(24);
+
 folder_path = "data/";
 
 % load offset measurement
@@ -37,4 +39,8 @@ for i = 1:5
     'Delimiter',{'\t',' '});
     v20(i,:,:) = readmatrix(name, 'Range', 3)';
 end
+
+cords = readmatrix(folder_path+'coords.dat');
+cords = cords(:,2);
+
 clear folder_path i name

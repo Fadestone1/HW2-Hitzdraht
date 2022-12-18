@@ -1,19 +1,38 @@
-figure('Name', 'Before normalization')
-tiledlayout(4, 6);
+f=figure('Name', 'Before normalization')
+f.Position(3:4) = f.Position(1:2) + [296,160];
+
+t1=tiledlayout(6,4);
 for i=1:24
     nexttile
-    disp(i+"/"+24)
     histogram(v0(i,:), 20,'BinWidth',.005)
     xlim([-.1, .1])
+    yticks([1000]);
     title("Sensor "+i)
 end
+exportgraphics(gcf,'figures/norm_hists_before.pdf','ContentType','vector')
+title(t1, "Before normalization")
 
-figure('Name', 'After normalization')
-tiledlayout(4, 6);
+f=figure('Name', 'After normalization')
+f.Position(3:4) = f.Position(1:2) + [296,160];
+title("After normalization")
+t2=tiledlayout(6,4);
 for i=1:24
     nexttile
-    disp(i+"/"+24)
     histogram(v0_normed(i,:), 20,'BinWidth',.2)
+    yticks([1000]);
+    xlim([-2, 2])
+    title("Sensor "+i)
+end
+exportgraphics(gcf,'figures/norm_hists_after_minmax.pdf','ContentType','vector')
+title(t2, "Before normalization")
+
+figure()
+title("v10 alfa 2")
+t=tiledlayout(6,4);
+for i=1:24
+    nexttile
+    histogram(v10(2,i,:), 20,'BinWidth',.2)
+    yticks([1000]);
     xlim([-2, 2])
     title("Sensor "+i)
 end

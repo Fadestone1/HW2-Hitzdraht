@@ -1,3 +1,7 @@
+addpath("util")
+
+alfas = 0:2:8;
+
 % load pressures
 p_dyn10 = zeros(5, 1);
 p_dyn15 = zeros(5, 1);

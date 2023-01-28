@@ -43,42 +43,73 @@ u = squeeze(Vs(:, :, 1));
 v = squeeze(Vs(:, :, 2));
 
 figure(1);
-quiver(x, y, u, v);
+quiver(x, y, u, v, 0.7);
 set(gca, 'YDir', 'reverse')
+xlabel("x [px]")
+ylabel("y [px]")
+
+axis("equal")
+
+exportgraphics(gcf(), "figures/cross_quiver.pdf");
 
 %% region plot
 showx = round(imsize(1)/regionsize*.4);
 showy = round(imsize(1)/regionsize*.5);
 figure(2)
+colormap(cividis)
 contourf(squeeze(Rs(showx, showy, :, :)))
+hold on
 
 xline(regionsize)
 yline(regionsize)
 
+%quiver(regionsize, regionsize,-Vs(showx, showy, 1), -Vs(showx, showy, 2), 0, "k")
+c = colorbar();
+c.Label.String = "Korrelation";
+
+xlabel("Lags x [px]")
+ylabel("Lags y [px]")
+set(gca, 'YDir', 'reverse')
+axis("equal")
+hold off
+exportgraphics(gcf(), "figures/cross_region_curf.pdf");
+
 figure(3);
-tiledlayout(1,2);
-nexttile;
+%tiledlayout(1,2);
+%nexttile;
 %slice_i = (showi*regionsize-regionsize+1):showi*regionsize;
 %slice_j = (showj*regionsize-regionsize+1):showj*regionsize;
+colormap(eclipse)
 starti = showx*regionsize-regionsize+1;
 stopi = showx*regionsize;
 startj = showy*regionsize-regionsize+1;
 stopj = showy*regionsize;
-imshow(im_a);
+imagesc(1:512, 1:480, im_a);
 xline(starti, "r-");
 xline(stopi, "r-");
 yline(startj, "r-");
 yline(stopj, "r-");
 
-nexttile;
+axis("equal")
+xlim([0,512])
+ylim([0,480])
+
+exportgraphics(gcf(), "figures/cross_image_a.pdf");
+
+figure(4)
+colormap(eclipse)
 starti = showx*regionsize-regionsize+1;
 stopi = showx*regionsize;
 startj = showy*regionsize-regionsize+1;
 stopj = showy*regionsize;
-imshow(im_b);
+imagesc(1:512, 1:480, im_b);
 xline(starti, "r-");
 xline(stopi, "r-");
 yline(startj, "r-");
 yline(stopj, "r-");
 
+axis("equal")
+xlim([0,512])
+ylim([0,480])
 
+exportgraphics(gcf(), "figures/cross_image_b.pdf");

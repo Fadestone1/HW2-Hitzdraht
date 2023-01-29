@@ -2,7 +2,7 @@ xshifts = [24, 23.8, 24, 24, 23.8, 24];
 yshifts = [23, 28, 31.5, 23, 28, 31.5];
 alphas = [6, 12, 15, 6, 12, 15];
 us = [10, 10, 10, 20, 20, 20];
-paramidx = 6;
+paramidx = 5;
 
 alphadeg = alphas(paramidx);
 alpharad = -deg2rad(alphadeg);
@@ -106,7 +106,7 @@ xlabel('x [mm]')
 title('Mean velocity')
 
 nexttile;
-imagesc(xl, yl, fliplr(mean(v.(param), 3)))
+imagesc(xl, yl, fliplr(mean(-v.(param), 3)))
 set(gca(), "YDir", "normal")
 hold on
 fill(cat(2, linspace(min(xl), max(xl)*1.01, length(xl)), min(xl)), cat(2, h/length(yl)*(max(yl)-min(yl))+min(yl), min(yl)), "k")

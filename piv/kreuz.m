@@ -49,6 +49,8 @@ xlabel("x [px]")
 ylabel("y [px]")
 
 axis("equal")
+xlim([1,512]);
+ylim([1,480]);
 
 exportgraphics(gcf(), "figures/cross_quiver.pdf");
 

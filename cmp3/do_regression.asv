@@ -1,0 +1,1 @@
+mdl = fitlm(-pressures, sensor_volts_means(1, :));
